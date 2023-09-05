@@ -127,9 +127,9 @@ function Home(): ReactElement {
       return null;
     }
 
-    const { notes, isOverdraft, currentBalance } = res.data;
+    const { notes: notesData, isOverdraft: isOverdraftData, currentBalance: currentBalanceData } = res.data;
 
-    const mergeNotes = mergeWith({}, withdrawNotes, notes, (value1, value2) => {
+    const mergeNotes = mergeWith({}, withdrawNotes, notesData, (value1, value2) => {
       if (isNumber(value1) && isNumber(value2)) {
         return value1 + value2;
       }
@@ -138,8 +138,8 @@ function Home(): ReactElement {
     });
 
     setWithdrawNotes(mergeNotes);
-    setIsOverdraft(isOverdraft);
-    setCurrentBalance(currentBalance);
+    setIsOverdraft(isOverdraftData);
+    setCurrentBalance(currentBalanceData);
 
     withdrawForm.resetForm();
   };
