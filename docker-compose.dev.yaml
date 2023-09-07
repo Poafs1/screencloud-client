@@ -13,15 +13,15 @@ services:
     networks:
       - screencloud-networks
 
-  nginx:
-    container_name: screencloud-nginx
-    build:
-      context: ./nginx
-      dockerfile: ./Dockerfile
-    ports:
-      - '80:80'
-    networks:
-      - screencloud-networks
+  # nginx:
+  #   container_name: screencloud-nginx
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - '80:80'
+  #   networks:
+  #     - screencloud-networks
 
 networks:
   screencloud-networks:
